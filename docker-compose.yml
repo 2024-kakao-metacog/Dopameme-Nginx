@@ -30,7 +30,7 @@ services:
     depends_on:
       - nginx
     volumes:
-      - ./data/certbot:/etc/letsencrypt
-      - ./data/certbot/www:/var/www/certbot
+      - ./certbot:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
     entrypoint: /bin/sh -c "trap exit TERM; exec sh"
     command: certbot certonly --webroot -w /var/www/certbot -d dopameme.n-e.kr -d www.dopameme.n-e.kr --non-interactive --agree-tos --email yun3.jo@gmail.com
