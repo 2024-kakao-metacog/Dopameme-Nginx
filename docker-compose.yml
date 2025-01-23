@@ -19,7 +19,7 @@ services:
     volumes:
       - ./certbot:/etc/letsencrypt
       - ./certbot/www:/var/www/certbot
-    entrypoint: /bin/sh -c "trap exit TERM; while :; do sleep 6h & wait $!; certbot renew --webroot -w /var/www/certbot; done"
+    entrypoint: /bin/sh -c \"trap exit TERM; while :; do sleep 6h & wait $!; certbot renew --webroot -w /var/www/certbot; done\"
 
   certbot_init:
     image: certbot/certbot
@@ -29,4 +29,4 @@ services:
     volumes:
       - ./data/certbot:/etc/letsencrypt
       - ./data/certbot/www:/var/www/certbot
-    entrypoint: sh -c "certbot certonly --webroot -w /var/www/certbot -d dopameme.n-e.kr -d www.dopameme.n-e.kr --non-interactive --agree-tos --email yun3.jo@gmail.com"
+    entrypoint: sh -c \"certbot certonly --webroot -w /var/www/certbot -d dopameme.n-e.kr -d www.dopameme.n-e.kr --non-interactive --agree-tos --email yun3.jo@gmail.com\"
